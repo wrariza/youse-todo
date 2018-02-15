@@ -22,7 +22,7 @@ $ yarn run build-prod
 ```
 ### Demo
 Publicacion en producción 
-https://wrariza.github.io/users/1/todo
+https://wrariza.github.io/youse-todo
 
 ### scrips de la aplicación
 ```sh
