@@ -27,6 +27,11 @@ class UsersList extends Component {
 
     handleOnAddUser (event) {
         event.preventDefault()
+        if( event.target.name.value === "" && 
+            event.target.email.value === "" &&
+            event.target.username.value === ""){
+                return;
+            } 
         let countId = this.state.users.length + 1
         let user = {
           id: countId,
@@ -79,6 +84,7 @@ class UsersList extends Component {
                         this.state.users.map( (user, index) => {
                             return ( 
                                 <User
+                                    style="style"
                                     props={user} {...user} 
                                     key={index} 
                                 />

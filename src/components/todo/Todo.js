@@ -10,7 +10,7 @@ import TextField from 'material-ui/TextField'
 import { todos } from '../../api/'
 
 const ListItemStyle = {
-    border: 'solid 1px gray',
+    border: 'solid 1px #3fcd9f',
     width: 250,
     align: "center"
 }
@@ -25,11 +25,6 @@ const iconStyles = {
     textAlign: 'center',
     justifyContent: 'center',
 }
-
-const completedTodo = {
-    textDecoration: 'line-through'
-}
-  
 
 class Todo extends Component {
   constructor(props){
@@ -109,7 +104,7 @@ class Todo extends Component {
       <div>
         { this.state.remove === false && 
           <ListItem   
-          style={ListItemStyle}
+          style={ListItemStyle} 
           leftCheckbox={
               <Checkbox
                   onClick={this.check} 
@@ -129,7 +124,9 @@ class Todo extends Component {
         </ListItem>
         }
          { this.state.remove === false && 
-            <section className="contentIcons" style={iconStyles}>
+            <section 
+              className="contentIcons" 
+              style={iconStyles}>
             { this.state.edit && 
               <i 
                   onClick={this.update} 

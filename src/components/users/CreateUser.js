@@ -15,17 +15,20 @@ class UserForm extends Component{
                 <TextField
                     require='true'
                     name='name'
+                    fullWidth={true}
                     floatingLabelText='Nombre'
                 /><br/>
                 <TextField
-                    require='true'
+                    require={true}
                     name='email'
-                    type='text'
+                    type='email'
+                    fullWidth={true}
                     floatingLabelText='Email'
                 /><br/>
                 <TextField
-                    require='true'
+                    require={true}
                     name='username'
+                    fullWidth={true}
                     floatingLabelText='Usuario'
                 /><br/>
                 <RaisedButton 
