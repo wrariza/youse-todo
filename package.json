@@ -9,7 +9,7 @@
     "build:dev": "concurrently -r \"webpack-dev-server --config ./webpack.dev.config.js\"",
     "build": "webpack",
     "build:local": "webpack --env.NODE_ENV=local",
-    "build:prod": "webpack -p --env.NODE_ENV=production"
+    "build-prod": "webpack -p --env.NODE_ENV=production"
   },
   "author": "william ariza",
   "license": "MIT",

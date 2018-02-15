@@ -7,6 +7,12 @@ import { users } from '../../api/'
 import  User from './User'
 import CreateUser from './CreateUser'
 
+const style = {
+    position: 'absolute',
+    right: 200,
+    left: 100,
+}
+
 class UsersList extends Component {
     constructor(props){
         super(props)
@@ -60,11 +66,12 @@ class UsersList extends Component {
     render() {
         return (
            <div>
-                <List>
+                <List style={style}>
+                <h2>Creando usurio</h2>
                 <CreateUser 
                     onAddUser={ this.handleOnAddUser }
                 />
-                <Subheader>Lista de usuarios</Subheader>
+                <h2>Lista de usuarios</h2>
                     {
                         this.state.isLoading ? (
                         <CircularProgress size={80} thickness={5} />

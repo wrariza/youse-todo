@@ -16,9 +16,9 @@ const enpoint = {
             });
     },
 
-    removeTodoUser: (id) => {
+    removeTodoUser: (todo) => {
         return axios
-        .delete(`${baseUrl}/${userId}/todo/${id}`)
+        .delete(`${baseUrl}/${todo.userId}/todo/${todo.id}`)
             .then(function (response) {
                 console.log(response);
                 return response.data;
