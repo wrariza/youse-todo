@@ -7,7 +7,7 @@ gti clone https://github.com/wrariza/youse-todo.git
 Instale las dependencias y devDependencies e inicie el servidor.
 
 ```sh
-$ cd compramejor-challenge
+$ cd youse-todo
 $ npm install && npm start
 Verifique la implementación navegando a la dirección de su servidor en su navegador preferido.
 Aplicación web server desarrollo $ http://localhost:9000 || 127.0.0.1:9000
