@@ -7,9 +7,15 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import { todos } from '../../api/'
 
-const style = {
+const styleBtn = {
   margin: 12,
-};
+}
+
+const style = {
+  position: 'absolute',
+  right: 500,
+}
+
 
 class User extends Component {
   constructor(props){
@@ -20,6 +26,7 @@ class User extends Component {
     return (
       <div>
         <ListItem
+            style="style"
             leftAvatar={<Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnPY9sPwcWO28GLfhK9Yc6KEBNbBk-E_bp_vN0PKVXKucb--QJ" />}
         >
         <p>{this.props.name}</p>
@@ -32,7 +39,7 @@ class User extends Component {
             }  
             label="Ver Todo" 
             primary={true} 
-            style={style} />
+            styleBtn={styleBtn} />
         <Divider/>
       </div>
     )

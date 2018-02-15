@@ -15,6 +15,7 @@ class TodoForm extends Component{
                 <TextField
                     name='title'
                     floatingLabelText='Tarea'
+                    errorText="Ingrese tarea"
                 /><br/>
                 <RaisedButton 
                     onClick={this.props.onSubmit}

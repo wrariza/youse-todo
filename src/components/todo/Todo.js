@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
-import FontIcon from 'material-ui/FontIcon';
+import FontIcon from 'material-ui/FontIcon'
 import { ListItem } from 'material-ui/List'
 import Divider from 'material-ui/Divider'
 import Checkbox from 'material-ui/Checkbox'
@@ -10,13 +10,14 @@ import TextField from 'material-ui/TextField'
 import { todos } from '../../api/'
 
 const ListItemStyle = {
-    border: 'solid 1px gray',
-    width: 500,
+    border: 'solid 1px #3fcd9f',
+    width: 250,
     align: "center"
 }
 
+
 const iconStyles = {
-    width: 500,
+    width: 250,
     align: "center",
     marginRight: 24,
     cursor: 'pointer',
@@ -26,25 +27,22 @@ const iconStyles = {
     justifyContent: 'center',
 }
 
-const completedTodo = {
-    textDecoration: 'line-through'
-}
-  
-
 class Todo extends Component {
   constructor(props){
     super(props)
 
     this.state = {
-        props,
         completed: props.completed,
-        edit: false
+        edit: false,
+        title: props.title,
+        remove: false
     }
 
     this.check = this.check.bind(this)
     this.edit = this.edit.bind(this)
     this.update = this.update.bind(this)
     this.delete = this.delete.bind(this)
+    this.onChangeTodo = this.onChangeTodo.bind(this)
   }
 
   updateTodoUser(){
@@ -54,7 +52,7 @@ class Todo extends Component {
           return {
             todo,              
           }
-        });
+        })
       })
   }
 
@@ -77,49 +75,72 @@ class Todo extends Component {
   }
 
   update(e){
-    console.log(e) 
     this.setStateEdit()
     this.updateTodoUser()
   }
 
   delete(e){
-    this.remove()
+    /* Inplemetación con servicio  */
+    // todos.removeTodoUser(this.props)
+    //   .then((todo) => {
+    //     this.setState(() => {
+    //       remove: true
+    //     })
+    //   })
+    this.setState({
+      remove: true
+    })
+  }
+
+  onChangeTodo(e){
+    console.log(e.target.value)
+    let title = e.target.value
+    this.setState({
+      title: title
+    })
   }
 
   render(){
     return (
       <div>
-        <ListItem   
-         style={ListItemStyle}
-         leftCheckbox={
-            <Checkbox
-                onClick={this.check} 
-                checked={this.state.completed}
-            />
-        }>
-        { this.state.edit  === false ? 
-            this.props.title :
-            <form onSubmit={this.props.onEditTodo}>
-              <TextField
-                  defaultValue={this.props.title}
-                  floatingLabelText="Editando TASK"
+        { this.state.remove === false && 
+          <ListItem   
+          style={ListItemStyle} 
+          leftCheckbox={
+              <Checkbox
+                  onClick={this.check} 
+                  checked={this.state.completed}
               />
-            </form>
-        }
+          }>
+          { this.state.edit  === false ? 
+              this.state.title :
+              <form onSubmit={this.props.onEditTodo}>
+                <TextField
+                    onChange={this.onChangeTodo}
+                    defaultValue={this.state.title}
+                    floatingLabelText="Editando TASK"
+                />
+              </form>
+          }
         </ListItem>
-         <section className="contentIcons" style={iconStyles}>
-         { this.state.edit && 
-            <i 
-                onClick={this.update} 
-                className="material-icons">save</i>
-         }
-            <i 
-                onClick={this.edit} 
-                className="material-icons">edit</i>  
-            <i 
-                onClick={this.delete} 
-                className="material-icons">delete</i>    
-        </section>
+        }
+         { this.state.remove === false && 
+            <section 
+              className="contentIcons" 
+              style={iconStyles}>
+            { this.state.edit && 
+              <i 
+                  onClick={this.update} 
+                  className="material-icons">save</i>
+            }
+              <i 
+                  onClick={this.edit} 
+                  className="material-icons">edit</i>  
+              <i 
+                  onClick={this.delete} 
+                  className="material-icons">delete</i>    
+            </section>
+          }       
       </div>
     )
   }

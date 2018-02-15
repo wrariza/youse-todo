@@ -10,8 +10,8 @@ import  Todo from './Todo'
 
 const style = {
     position: 'absolute',
-    right: 200,
-    left: 100,
+    left: 20,
+    borderRadius: 10
 }
 
 class TodoList extends Component {
@@ -32,6 +32,7 @@ class TodoList extends Component {
 
     handleOnAddTodo (event) {
         event.preventDefault()
+        if(event.target[0].value === "") return 
         let countId = this.state.todos.length + 1
         let todo = {
           id: countId,
