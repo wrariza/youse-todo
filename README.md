@@ -8,7 +8,7 @@ Instale las dependencias y devDependencies e inicie el servidor.
 
 ```sh
 $ cd youse-todo
-$ npm install && npm start
+$ yarn install && yarn run build:dev
 Verifique la implementación navegando a la dirección de su servidor en su navegador preferido.
 Aplicación web server desarrollo $ http://localhost:9000 || 127.0.0.1:9000
 Servidor node api http://localhost:9090 || 127.0.0.1:9090
